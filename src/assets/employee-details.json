@@ -1,0 +1,19 @@
+{
+    "employeeDetails": [
+      {
+        "empId": 101,
+        "designation": "Senior Engineer",
+        "department": "LAMP"
+      },
+      {
+        "empId": 102,
+        "designation": "Engineer",
+        "department": "LAMP"
+      },
+      {
+        "empId": 103,
+        "designation": "Trainee",
+        "department": "LAMP"
+      }
+    ]
+  }

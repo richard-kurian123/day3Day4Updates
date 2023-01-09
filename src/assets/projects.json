@@ -1,0 +1,12 @@
+{
+    "projects": [
+      {
+        "id": 1234,
+        "name": "Greenpath"
+      },
+      {
+        "id": 1235,
+        "name": "Damp"
+      }
+    ]
+  }

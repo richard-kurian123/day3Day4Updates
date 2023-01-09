@@ -1,0 +1,64 @@
+<div class="parent-container">
+  <div class="form-container">
+    <form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+      <h3>Employee details</h3>
+      <label for="fname">Name</label>
+      <input formControlName="name" type="text" placeholder="Your name..">
+      <small *ngIf="empForm.get('name')?.touched && (empForm.get('name')?.invalid)"
+        style="color: red; display: block;">Id is required </small>
+      <label for="lname">Designation</label>
+      <input formControlName="designation" type="text" placeholder="designation..">
+      <small *ngIf="empForm.get('designation')?.touched && (empForm.get('designation')?.invalid)"
+        style="color: red; display: block;">Id is required </small>
+      <label for="country">Department</label>
+      <input formControlName="department" type="text" placeholder="designation..">
+      <small *ngIf="empForm.get('department')?.touched && (empForm.get('department')?.invalid)"
+        style="color: red; display: block;">Id is required </small>
+      <h4>Project info</h4>
+      <div formArrayName="project">
+        <div class="project-section">
+          <ng-container *ngFor="let item  of projectControls; index as i ">
+            <label for="country">Add project name</label>
+            <input [formControlName]="i" type="text" placeholder="add projects">
+          </ng-container>
+          <div class="addProjects-btn" (click)="addProject()"><span>add projects</span></div>
+        </div>
+      </div>
+      <input type="submit" [disabled]="empForm.invalid" value="Submit">
+    </form>
+  </div>
+</div>
+<h1> Table</h1>
+<table id="empTable">
+  <tr>
+    <th>Emp ID</th>
+    <th>Emp Name</th>
+    <th>Department</th>
+    <th>Designation</th>
+    <th>projects</th>
+  </tr>
+
+  <ng-container *ngFor="let item of employees">
+    <tr>
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.department}}</td>
+      <td> {{item.designation}}</td>
+      <td  [ngClass]="{'back-ground': item.control === true}">
+        <span 
+          *ngFor="let subItem of item.projectArray">{{subItem}}&nbsp;</span>
+    </td>
+    </tr>
+  </ng-container>
+  <ng-container *ngFor="let item of  formDataArray">
+    <tr>
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.department}}</td>
+      <td>{{item.designation}}</td>
+      <td [ngClass]="{'back-ground': item.projectStatus ===true}"> <span class="project"
+          *ngFor="let subItem of item.project">{{subItem}}&nbsp;</span>
+      </td>
+    </tr>
+  </ng-container>
+</table>

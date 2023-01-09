@@ -1,0 +1,16 @@
+{
+    "employeeProject": [
+      {
+        "empId": 101,
+        "project": 1234
+      },
+      {
+        "empId": 101,
+        "project": 1235
+      },
+      {
+        "empId": 102,
+        "project": 1234
+      }
+    ]
+  }
